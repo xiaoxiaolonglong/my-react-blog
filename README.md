@@ -1,3 +1,4 @@
+#使用react搭建blog前端，后台代码为[python-django-blog](https://github.com/xiaoxiaolonglong/python-django-blog)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
