@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './asset/css/bootstrap.min.css';
+import './asset/css/font-awesome.min.css';
+import './asset/css/style.css';
+import './asset/css/raxus.css';
+import './asset/css/os.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import axios from "axios";
+ 
+React.Component.prototype.axios = axios;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

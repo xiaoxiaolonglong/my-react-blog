@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// 组件引入
+import Header from './components/components/Header';
+import Aside from './components/components/Aside';
+import Footer from './components/components/Footer';
+import About from './components/layout/About';
+import Index from './components/layout/Index';
+import List from './components/layout/List';
+import Show from './components/layout/Show';
+import FriendLink from './components/components/FriendLink';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header></Header>
+        <div id="main-container" className="container clearfix">
+          <Aside></Aside>
+          {/* exact解决输入其他路由都会访问末页路由 */}
+          <Route path='/' exact={true} component={Index}></Route>
+          <Route path='/list' component={List}></Route>
+          <Route path='/show' component={Show}></Route>
+          <Route path='/about' component={About}></Route>
+          <FriendLink></FriendLink>
+        </div>
+        <Footer></Footer>
+      </div>
+    </Router>
   );
 }
 
