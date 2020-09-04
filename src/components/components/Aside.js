@@ -57,7 +57,7 @@ class Aside extends React.Component {
                     {
                         this.state.hot.map((item,index)=>{
                             return (
-                                <li key={index}><Link to={'/show?q='+item.pk} title={item.fields.title}>{item.fields.title}</Link></li>
+                                <li key={index}><Link to={'/show?q='+item.id} title={item.title}>{item.title}</Link></li>
                             )
                         })
                     }
@@ -73,13 +73,13 @@ class Aside extends React.Component {
                             return (
                                 <li key={index}>
                                     <div className="img">
-                                        <Link to={'/show?q='+item.pk} title={item.fields.title}>
-                                            <img src={'http://127.0.0.1:8000/media/'+item.fields.img}
-                                                alt={item.fields.title} className="wp-post-image" width="120" height="80" />
+                                        <Link to={'/show?q='+item.id} title={item.title}>
+                                            <img src={'http://127.0.0.1:8000/media/'+item.img}
+                                                alt={item.title} className="wp-post-image" width="120" height="80" />
                                         </Link>
                                     </div>
                                     <div className="text">
-                                    <Link to={'/show?q='+item.pk} title={item.fields.title}>{item.fields.title}</Link>
+                                    <Link to={'/show?q='+item.pk} title={item.title}>{item.title}</Link>
                                     </div>
                                 </li>
                             )
@@ -93,7 +93,7 @@ class Aside extends React.Component {
                     {
                         this.state.tags.map((item,index)=>{
                             return (
-                                <Link key={index} to={'/list?q='+item.pk}>{item.fields.name}</Link>
+                                <Link key={index} to={'/list?q='+item.id}>{item.name}</Link>
                             )
                         })
                     }

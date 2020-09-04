@@ -49,10 +49,10 @@ class Banner extends React.Component {
                             this.props.banners.map((item,index) => {
                                 return( 
                                     <div key={index} className="swiper-slide">
-                                        <a href={item.fields.link_url} title={item.fields.text_info}>
-                                            <img src={'http://127.0.0.1:8000/media/'+item.fields.img} alt={item.fields.text_info} className="wp-post-image" />
+                                        <a href={item.link_url} title={item.text_info}>
+                                            <img src={'http://127.0.0.1:8000/media/'+item.img} alt={item.text_info} className="wp-post-image" />
                                         </a>
-                                        <span className="text-info"><strong>{item.fields.text_info}</strong></span>
+                                        <span className="text-info"><strong>{item.text_info}</strong></span>
                                     </div>
                                 )
                             })
@@ -68,7 +68,7 @@ class Banner extends React.Component {
                             this.props.banners.map((item,index) => {
                                 return( 
                                     <div key={index} className="swiper-slide" style={{width:100}}>
-                                        <img src={'http://127.0.0.1:8000/media/'+item.fields.img} alt={item.fields.text_info} className="wp-post-image"/>
+                                        <img src={'http://127.0.0.1:8000/media/'+item.img} alt={item.text_info} className="wp-post-image"/>
                                     </div>
                                 )
                             })

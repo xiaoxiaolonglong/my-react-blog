@@ -35,7 +35,7 @@ class FriendLink extends React.Component {
                     {
                         this.state.links.map((item,index) => {
                             return (
-                            <li key={index}><a href={item.fields.linkurl} target="_blank">{item.fields.name}</a></li>
+                            <li key={index}><a href={item.linkurl} target="_blank">{item.name}</a></li>
                             )
                         })
                     }

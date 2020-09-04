@@ -28,24 +28,22 @@ class Header extends React.Component {
     render() {
         return (
             <header className="fix-wrap" id="fix-wrap">
-                <div className="fix-main clearfix pr" id="fix-main" _hover-ignore="1"> 
-                    <a href="/" className="index-logo">
-                        <img src="static/picture/black-logo.png" alt="拓普Python学院,Python!"/>  
-                    </a>
+                <div className="fix-main clearfix pr" id="fix-main" _hover-ignore="1">
+                    <Link to="/" className="index-logo"><img src="static/picture/black-logo.png" alt="拓普Python学院,Python!"/></Link>
                     <nav className="nav fl">
                         <ul id="fix-list" className="fix-list clearfix">
 
-                            <li id="menu-item-24086" className="menu-item"><a href="/">首页</a></li>
+                            <li id="menu-item-24086" className="menu-item"><Link to="/">首页</Link></li>
                             {
                                 this.state.category.map((item, index) => {
                                     return (
                                         <li key={index} id="menu-item-117720" className="menu-item">
-                                            <Link to={'/list?q='+item.pk}>{item.fields.name}</Link>
+                                            <Link to={'/list?title='+item.name+'&category='+item.id}>{item.name}</Link>
                                         </li>
                                     )
                                 })
                             }
-                            <li id="menu-item-24086" className="menu-item"><a href="/about">关于博主</a></li>
+                            <li id="menu-item-24086" className="menu-item"><Link to="/about">关于博主</Link></li>
 
 
                         </ul>
