@@ -8,11 +8,11 @@ class NavBar extends React.Component {
         您的位置：
         <Link to="/">首页</Link><span> » </span>
         {
-          this.props.param.map((item,index) => {
-            if(index === this.props.param.length-1){
+          this.props.data.map((item,index) => {
+            if(this.props.type === 'list'){
               return <span key={index} className="current">{item.name}</span>
             }else{
-              return (<span key={index}><Link to={"/list?category="+item.id}>{item.name}</Link> » </span>)
+              return <span key={index} ><Link to={'/list?category='+item.id}>{item.name}</Link> » 正文</span>
             }
           })
         }

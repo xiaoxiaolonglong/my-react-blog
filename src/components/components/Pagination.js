@@ -5,9 +5,9 @@ class Pagination extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageindex:9,
-            pagesize:10,
-            pagecount:100,
+            pageindex:this.props.page.pageindex,
+            pagesize:this.props.page.pagesize,
+            pagecount:this.props.page.pagecount,
         };
         this.nextPage = this.nextPage.bind(this);
         this.prePage = this.prePage.bind(this);
@@ -15,6 +15,14 @@ class Pagination extends React.Component {
     }
     componentDidMount() {
 
+    }
+    componentWillReceiveProps(nextProps){
+        //props改变触发该函数
+        this.setState({
+            pageindex:nextProps.page.pageindex,
+            pagesize:nextProps.page.pagesize,
+            pagecount:nextProps.page.pagecount,
+        })
     }
     goPage(page){
         this.setState({
@@ -25,11 +33,13 @@ class Pagination extends React.Component {
         this.setState({
             pageindex:this.state.pageindex-1
         })
+        this.props.getPage(this.state.pageindex-1)
     }
     nextPage(){
         this.setState({
             pageindex:this.state.pageindex+1
         })
+        this.props.getPage(this.state.pageindex+1)
     }
     componentWillUnmount() {
         //程序卸载时
@@ -40,6 +50,7 @@ class Pagination extends React.Component {
         for(let i = 1;i<=Math.ceil(this.state.pagecount/this.state.pagesize);i++){
             arr.push(i)
         }
+        console.log(this.state.pagecount,this.state.pagesize,this.state.pageindex)
         return (
             <div className="pagination" style={{display:this.state.pagecount>this.state.pagesize?'block':'none'}}>
                 <ul>

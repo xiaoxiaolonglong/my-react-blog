@@ -5,6 +5,7 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {category: [],searchParam:''};
+        this.search = this.search.bind(this)
     }
     componentDidMount() {
         // 程序加载时
@@ -20,6 +21,9 @@ class Header extends React.Component {
           .catch(function(error) {
             console.log(error);
           }); 
+    }
+    search(){
+        this.props.history.push({pathname:'/list?search='+this.state.searchParam})
     }
     componentWillUnmount() {
         //程序卸载时
@@ -38,7 +42,7 @@ class Header extends React.Component {
                                 this.state.category.map((item, index) => {
                                     return (
                                         <li key={index} id="menu-item-117720" className="menu-item">
-                                            <Link to={'/list?title='+item.name+'&category='+item.id}>{item.name}</Link>
+                                            <Link to={'/list?category='+item.id}>{item.name}</Link>
                                         </li>
                                     )
                                 })
@@ -48,7 +52,7 @@ class Header extends React.Component {
 
                         </ul>
                     </nav>
-                    <form method="get" className="index-search  hidden-xs" action="/s/">
+                    <form method="get" className="index-search  hidden-xs" action={'/list?search='+this.state.searchParam}>
                         <input className="text" name="search" type="text" placeholder="输入关键字" value={this.searchParam}/>
                         <button className="submit" type="submit"><i className="fa fa-search"></i></button>
                     </form>

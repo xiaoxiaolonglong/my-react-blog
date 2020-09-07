@@ -5,7 +5,7 @@ class About extends React.Component {
   render() {
     return (
       <section className="post-left">
-        <NavBar></NavBar>
+        <NavBar data={[{id:'',name:'关于我们'}]} type="list"></NavBar>
         <div className="post-main clearfix">
           <h1 className="post-title">关于我们</h1>
           <div className="post-con clearfix">

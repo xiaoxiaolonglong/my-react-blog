@@ -57,7 +57,7 @@ class Aside extends React.Component {
                     {
                         this.state.hot.map((item,index)=>{
                             return (
-                                <li key={index}><Link to={'/show?q='+item.id} title={item.title}>{item.title}</Link></li>
+                                <li key={index}><Link to={'/show?id='+item.id} title={item.title}>{item.title}</Link></li>
                             )
                         })
                     }
@@ -73,13 +73,13 @@ class Aside extends React.Component {
                             return (
                                 <li key={index}>
                                     <div className="img">
-                                        <Link to={'/show?q='+item.id} title={item.title}>
+                                        <Link to={'/show?id='+item.id} title={item.title}>
                                             <img src={'http://127.0.0.1:8000/media/'+item.img}
                                                 alt={item.title} className="wp-post-image" width="120" height="80" />
                                         </Link>
                                     </div>
                                     <div className="text">
-                                    <Link to={'/show?q='+item.pk} title={item.title}>{item.title}</Link>
+                                    <Link to={'/show?id='+item.id} title={item.title}>{item.title}</Link>
                                     </div>
                                 </li>
                             )
@@ -93,14 +93,14 @@ class Aside extends React.Component {
                     {
                         this.state.tags.map((item,index)=>{
                             return (
-                                <Link key={index} to={'/list?q='+item.id}>{item.name}</Link>
+                                <Link key={index} to={'/list?tag='+item.id}>{item.name}</Link>
                             )
                         })
                     }
                 </div>
             </section>
             {/* <!-- /关注我们 --> */}
-            <div className="post-right-item">
+            {/* <div className="post-right-item">
                 <h4 className="post-right-title">关注我们</h4>
                 <div className="wid-about">
                     <p>拓普Python学院，欢迎关注！</p>
@@ -111,7 +111,7 @@ class Aside extends React.Component {
                     <p>QQ:445813</p>
                     <p>Email：445813@qq.com</p>
                 </div>
-            </div>
+            </div> */}
 
         </aside>
             

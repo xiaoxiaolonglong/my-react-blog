@@ -71,7 +71,7 @@ class Index extends React.Component {
                                     return(
                                         <div key={index} className="caption">
                                             <h4>
-                                                 <Link to={'/show?q='+item.id} title={item.title}>{item.title}</Link>
+                                                 <Link to={'/show?id='+item.id} title={item.title}>{item.title}</Link>
                                             </h4>
                                             <p>{item.excerpt}</p>
                                         </div>
@@ -95,7 +95,7 @@ class Index extends React.Component {
                                     <div key={index} className="article-box clearfix excerpt-1">
                                         <div className="col-md-4">
                                             <div className="thumbnail">
-                                                <Link to={'/show?q='+item.id} title={item.title}>
+                                                <Link to={'/show?id='+item.id} title={item.title}>
                                                     <img src={'http://127.0.0.1:8000/media/'+item.img}
                                                         alt={item.title} className="wp-post-image" width="240"
                                                         height="160" />
@@ -103,11 +103,11 @@ class Index extends React.Component {
                                             </div>
                                         </div>
                                         <div className="col-md-8">
-                                            <h2><a href="/show-3.html" target="_blank" title={item.title}>{item.title}</a></h2>
+                                            <h2><Link to={'/list?id='+item.category} title={item.title}>{item.title}</Link></h2>
                                             <p className="txtcont hidden-xs"><a href="/" target="_blank"
                                                     title={item.title}>{item.excerpt}</a></p>
                                             <div className="meta">
-                                                <span className="label label-info"><Link to={'/list?q='+item.category}>{item.category__name}</Link></span>
+                                                <span className="label label-info"><Link to={'/list?id='+item.category}>{item.category__name}</Link></span>
                                                 <time className="item"><i className="fa fa-clock-o"></i>{item.created_time}</time>
                                             </div>
                                         </div>
