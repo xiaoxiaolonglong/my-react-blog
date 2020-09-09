@@ -10,8 +10,8 @@ class Aside extends React.Component {
         // 程序加载时
         const _this = this; //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
         // 获取热门文章
-        this.axios
-        .get("http://127.0.0.1:8000/blog/get_hot_article")
+        this.api
+        .get("/blog/get_hot_article")
         .then((response) => {
             console.log(response.data.data)
             _this.setState({
@@ -22,8 +22,8 @@ class Aside extends React.Component {
           console.log(error);
         }); 
         // 获取推荐阅读
-        this.axios
-          .get("http://127.0.0.1:8000/blog/get_tui_by_count?tui_id=1&count=6")
+        this.api
+          .get("/blog/get_tui_by_count?tui_id=1&count=6")
           .then((response) => {
               _this.setState({
                 tui:response.data.data
@@ -33,8 +33,8 @@ class Aside extends React.Component {
             console.log(error);
           });
         // 获取所有标签
-        this.axios
-        .get("http://127.0.0.1:8000/blog/get_all_tag")
+        this.api
+        .get("/blog/get_all_tag")
         .then((response) => {
             _this.setState({
               tags:response.data.data
@@ -74,7 +74,7 @@ class Aside extends React.Component {
                                 <li key={index}>
                                     <div className="img">
                                         <Link to={'/show?id='+item.id} title={item.title}>
-                                            <img src={'http://127.0.0.1:8000/media/'+item.img}
+                                            <img src={'/media/'+item.img}
                                                 alt={item.title} className="wp-post-image" width="120" height="80" />
                                         </Link>
                                     </div>

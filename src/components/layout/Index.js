@@ -12,8 +12,8 @@ class Index extends React.Component {
         // 程序加载时
         const _this = this; //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
         // 获取推荐阅读
-        this.axios
-          .get("http://127.0.0.1:8000/blog/get_tui_by_count?tui_id=2&count=3")
+        this.api
+          .get("/blog/get_tui_by_count?tui_id=2&count=3")
           .then((response) => {
               _this.setState({
                 tui:response.data.data
@@ -24,8 +24,8 @@ class Index extends React.Component {
           }); 
 
         // 获取最新文章
-        this.axios
-          .get("http://127.0.0.1:8000/blog/get_new_article")
+        this.api
+          .get("/blog/get_new_article")
           .then((response) => {
               _this.setState({
                 newArticle:response.data.data,
@@ -36,8 +36,8 @@ class Index extends React.Component {
           }); 
           
         // 获取轮播图
-        this.axios
-        .get("http://127.0.0.1:8000/blog/get_banner")
+        this.api
+        .get("/blog/get_banner")
         .then((response) => {
             _this.setState({
               banners:response.data.data,
@@ -96,7 +96,7 @@ class Index extends React.Component {
                                         <div className="col-md-4">
                                             <div className="thumbnail">
                                                 <Link to={'/show?id='+item.id} title={item.title}>
-                                                    <img src={'http://127.0.0.1:8000/media/'+item.img}
+                                                    <img src={'/media/'+item.img}
                                                         alt={item.title} className="wp-post-image" width="240"
                                                         height="160" />
                                                 </Link>

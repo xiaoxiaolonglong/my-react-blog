@@ -9,9 +9,9 @@ import './asset/css/os.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import axios from "axios";
+import api from "./utils/api";
  
-React.Component.prototype.axios = axios;
+React.Component.prototype.api = api;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

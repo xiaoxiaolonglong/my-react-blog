@@ -20,11 +20,11 @@ class List extends React.Component {
         // 页面回到顶部
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         const _this = this; //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
-        let url = "http://127.0.0.1:8000/blog/get_article"+nextProps.location.search;
+        let url = "/blog/get_article"+nextProps.location.search;
         if(pageindex){
             url = url + '&page=' + pageindex
         }
-        this.axios
+        this.api
           .get(url)
           .then((response) => {
               _this.setState({
@@ -64,7 +64,7 @@ class List extends React.Component {
                                 <div className="col-md-4">
                                     <div className="thumbnail">
                                         <Link to={'/show?id='+item.id} title={item.title}>
-                                            <img src={'http://127.0.0.1:8000/media/'+item.img}
+                                            <img src={'/media/'+item.img}
                                                 alt={item.title} className="wp-post-image" width="240"
                                                 height="160" />
                                         </Link>

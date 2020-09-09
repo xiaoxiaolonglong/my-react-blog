@@ -10,8 +10,8 @@ class FriendLink extends React.Component {
         // 程序加载时
         const _this = this; //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
         // 获取所有标签
-        this.axios
-        .get("http://127.0.0.1:8000/blog/get_all_link")
+        this.api
+        .get("/blog/get_all_link")
         .then((response) => {
             _this.setState({
                 links:response.data.data

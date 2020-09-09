@@ -10,17 +10,11 @@ class Header extends React.Component {
     componentDidMount() {
         // 程序加载时
         const _this = this; //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
-        this.axios
-          .get("http://127.0.0.1:8000/blog/get_all_category")
-          .then((response) => {
-              console.log(response.data);
-              _this.setState({
+        this.api.get("/blog/get_all_category").then(response => {
+            _this.setState({
                 category:response.data.data
-              })
-          })
-          .catch(function(error) {
-            console.log(error);
-          }); 
+            })
+        })
     }
     search(){
         this.props.history.push({pathname:'/list?search='+this.state.searchParam})

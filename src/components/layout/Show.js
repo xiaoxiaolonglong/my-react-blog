@@ -20,8 +20,8 @@ class About extends React.Component {
         // 页面回到顶部
         document.body.scrollTop = document.documentElement.scrollTop = 0;
         const _this = this; //先存一下this，以防使用箭头函数this会指向我们不希望它所指向的对象。
-        let url = "http://127.0.0.1:8000/blog/get_detail"+nextProps.location.search;
-        this.axios
+        let url = "/blog/get_detail"+nextProps.location.search;
+        this.api
           .get(url)
           .then((response) => {
               _this.setState({
