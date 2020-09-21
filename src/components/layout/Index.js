@@ -103,7 +103,7 @@ class Index extends React.Component {
                                             </div>
                                         </div>
                                         <div className="col-md-8">
-                                            <h2><Link to={'/show?id='+item.category} title={item.title}>{item.title}</Link></h2>
+                                            <h2><Link to={'/show?id='+item.id} title={item.title}>{item.title}</Link></h2>
                                             <p className="txtcont hidden-xs"><a href="/" target="_blank"
                                                     title={item.title}>{item.excerpt}</a></p>
                                             <div className="meta">
