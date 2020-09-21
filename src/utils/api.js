@@ -1,11 +1,21 @@
 import axios from "axios";
 
-const IP = "http://127.0.0.1"
-const PORT = "8000"
+let IP = ''
+let PORT = ''
+// 运行环境判断
+if (process.env.NODE_ENV == "development") {
+    // 开发环境
+    IP = "http://127.0.0.1"
+    PORT = ":8000"
+  }else{
+    //生产环境
+    IP = ""
+    PORT = ""
+  }
 
 export default {
     get(url){
-        url = IP + ':' + PORT + url;
+        url = IP + PORT + url;
         const p = new Promise(
             (resolve, reject)=>{
                 axios.get(url)
